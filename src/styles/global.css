@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/fraunces/full.css';
+@import '@fontsource-variable/inter';
+
+@theme {
+  --color-paper: #f4efe6;
+  --color-paper-2: #ebe4d6;
+  --color-ink: #161412;
+  --color-ink-soft: #4a443d;
+  --color-line: #d9d0be;
+  --color-vermilion: #e8472b;
+  --color-vermilion-dark: #c93519;
+
+  --font-serif: 'Fraunces Variable', Georgia, serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-vermilion text-paper;
+  }
+  :focus-visible {
+    @apply outline-vermilion outline-2 outline-offset-4;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .display {
+    @apply font-serif font-light tracking-tight;
+    font-variation-settings: 'opsz' 144;
+    text-wrap: balance;
+  }
+  .display em {
+    @apply text-vermilion font-normal italic;
+  }
+  .eyebrow {
+    @apply text-ink-soft text-xs font-medium tracking-[0.18em] uppercase;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply bg-ink text-paper hover:bg-vermilion;
+  }
+  .btn-ghost {
+    @apply border-ink/25 text-ink hover:border-ink hover:bg-ink hover:text-paper border;
+  }
+}
+
+/* Estado inicial de elementos animados solo si hay JS y no hay reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}

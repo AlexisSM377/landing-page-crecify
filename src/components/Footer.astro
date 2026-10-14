@@ -1,0 +1,22 @@
+---
+import { site, whatsappLink, bookingLink } from '../config/site';
+---
+
+<footer id="contacto" class="bg-ink text-paper">
+  <div class="mx-auto max-w-6xl px-5 py-24 text-center">
+    <h2 class="display mx-auto max-w-3xl text-5xl md:text-7xl">
+      ¿Listo para <em>crecer</em>?
+    </h2>
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a href={whatsappLink()} class="btn bg-vermilion text-paper hover:bg-paper hover:text-ink">
+        Escribir por WhatsApp
+      </a>
+      <a href={bookingLink} class="btn border border-paper/40 hover:bg-paper hover:text-ink">
+        Agendar diagnóstico
+      </a>
+    </div>
+    <p class="mt-20 text-xs text-paper/50">
+      © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>

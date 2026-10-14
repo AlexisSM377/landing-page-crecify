@@ -1,0 +1,38 @@
+---
+import { founders, niches } from '../data/content';
+import { whatsappLink } from '../config/site';
+---
+
+<section class="mx-auto max-w-6xl px-5 py-24">
+  <div class="grid gap-14 lg:grid-cols-2">
+    <div data-reveal>
+      <p class="eyebrow mb-4">Programa de lanzamiento</p>
+      <h2 class="display text-4xl md:text-5xl">{founders.title}</h2>
+      <p class="mt-5 max-w-md text-ink-soft">{founders.text}</p>
+      <ul class="mt-6 space-y-2">
+        {founders.perks.map((p) => (
+          <li class="flex gap-2">
+            <span class="text-vermilion" aria-hidden="true">
+              ✦
+            </span>
+            {p}
+          </li>
+        ))}
+      </ul>
+      <a
+        href={whatsappLink('Hola Crecify, quiero ser cliente fundador.')}
+        class="btn btn-primary mt-8"
+      >
+        Quiero ser fundador
+      </a>
+    </div>
+    <div data-reveal>
+      <p class="eyebrow mb-4">Trabajamos con</p>
+      <ul class="flex flex-wrap gap-2.5">
+        {niches.map((n) => (
+          <li class="rounded-full border border-ink/25 px-4 py-2 text-sm">{n}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

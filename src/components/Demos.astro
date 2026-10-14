@@ -1,0 +1,29 @@
+---
+import { demos } from '../data/content';
+---
+
+<section id="demos" class="mx-auto max-w-6xl px-5 py-24">
+  <p class="eyebrow mb-4" data-reveal>
+    Demostraciones
+  </p>
+  <h2 class="display max-w-2xl text-4xl md:text-6xl" data-reveal>
+    Así se vería <em>tu</em> negocio.
+  </h2>
+  <div class="mt-14 grid gap-6 md:grid-cols-3">
+    {demos.map((d, i) => (
+      <article
+        class="group flex flex-col justify-between rounded-3xl border border-line bg-paper-2 p-7 transition-colors hover:border-ink"
+        data-reveal
+      >
+        <div>
+          <span class="rounded-full border border-ink/20 px-3 py-1 text-xs">{d.tag}</span>
+          <h3 class="display mt-10 text-3xl">{d.name}</h3>
+          <p class="mt-3 text-ink-soft">{d.blurb}</p>
+        </div>
+        <span class="mt-10 font-serif text-6xl font-light text-vermilion/90 transition-transform group-hover:translate-x-1">
+          0{i + 1}
+        </span>
+      </article>
+    ))}
+  </div>
+</section>

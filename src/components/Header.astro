@@ -1,0 +1,28 @@
+---
+import { site, bookingLink } from '../config/site';
+const links = [
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#demos', label: 'Demos' },
+  { href: '#planes', label: 'Planes' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="#top" class="font-serif text-2xl tracking-tight" aria-label={`${site.name} — inicio`}>
+      {site.name}
+      <span class="text-vermilion">.</span>
+    </a>
+    <nav aria-label="Principal" class="hidden items-center gap-8 text-sm md:flex">
+      {links.map((l) => (
+        <a href={l.href} class="text-ink-soft transition-colors hover:text-ink">
+          {l.label}
+        </a>
+      ))}
+    </nav>
+    <a href={bookingLink} class="btn btn-primary !px-5 !py-2.5">
+      Agendar diagnóstico
+    </a>
+  </div>
+</header>
